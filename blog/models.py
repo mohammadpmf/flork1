@@ -11,3 +11,6 @@ class BPost(models.Model):
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title

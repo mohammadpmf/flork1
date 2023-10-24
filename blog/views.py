@@ -10,3 +10,6 @@ def posts_list(request):
 def show_detail(request, pk):
     post = get_object_or_404(BPost, pk=pk)
     return render(request, 'detail.html', {'post': post})
+
+def new_post(request):
+    return render(request, 'new_post.html')

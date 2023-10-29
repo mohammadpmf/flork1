@@ -10,6 +10,7 @@ def posts_list(request):
 def show_detail(request, pk):
     post = get_object_or_404(BPost, pk=pk)
     return render(request, 'detail.html', {'post': post})
-
+from .forms import NewPostForm
 def new_post(request):
-    return render(request, 'new_post.html')
+    form = NewPostForm()
+    return render(request, 'new_post.html', {'form': form})

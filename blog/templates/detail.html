@@ -8,7 +8,6 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-9">
-
             <div class="card shadow my-3 p-5">
                 <h1> {{ post.title }} </h1>
                 <p class="small text-muted mt-2">Created on: {{ post.datetime_created }} </p>
@@ -17,6 +16,10 @@
                 </p>
                 <p class="small text-muted">Writer: {{ post.author }} </p>
                 <p class="small text-muted mt">Last modified on: {{ post.datetime_modified }}</p>
+                <div>
+                    <a href="" class="btn btn-outline-secondary">Update</a>
+                    <a href="" class="btn btn-outline-danger">Delete</a>
+                </div>
             </div>
         
             <div class="card shadow my-3 p-5">

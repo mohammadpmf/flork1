@@ -5,9 +5,12 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Are you sure you want to delete {{ post.title }}?</h1>
-    <form action="">
-        <input class="btn btn-danger" type="submit" value="Yes. Delete.">
-        <a href="{% url 'show_detail' post.pk %}" class="btn btn-primary">No. Back to the post.</a>
-    </form>
+    <div class="container mt-5 card shadow p-5">
+        <h1>Are you sure you want to delete {{ post.title }}?</h1>
+        <form action="" method='POST'>
+            {% csrf_token %}
+            <input class="btn btn-danger" type="submit" value="Yes. Delete.">
+            <a href="{% url 'show_detail' post.pk %}" class="btn btn-primary">No. Back to the post.</a>
+        </form>
+    </div>
 {% endblock content %}

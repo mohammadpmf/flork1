@@ -34,4 +34,7 @@ def update_post(request, pk):
 
 def delete_post(request, pk):
     post = get_object_or_404(BPost, pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('blog')
     return render(request, 'delete_post.html' , {'post': post})

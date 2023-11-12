@@ -32,6 +32,6 @@ def update_post(request, pk):
     return render(request, 'new_post.html', {'form': form})
 
 
-
-def delete_post(request):
-    return render(request, 'posts_list.html')
+def delete_post(request, pk):
+    post = get_object_or_404(BPost, pk=pk)
+    return render(request, 'delete_post.html' , {'post': post})

@@ -26,7 +26,12 @@
                 <a class="nav-link" href="https://www.google.com">Google</a>
             </div>
         </div>
-        <div class="mx-1">Welcome</div>
+        {% if user.is_authenticated %}
+            <div class="mx-1">Welcome {{ user }}</div>
+            <a class="mx-1 text-black btn btn-secondary" href="{% url 'logout' %}">Log out</a>
+        {% else %}
+            <a class="mx-1 text-black btn btn-secondary" href="{% url 'login' %}">Log in here</a>
+        {% endif %}
     </div>
 </nav>
 

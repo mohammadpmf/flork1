@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from .models import BPost
+from .models import BPost, Comment
 from .forms import NewPostForm
 
 def posts_list(request):
@@ -11,7 +11,13 @@ def posts_list(request):
 
 def show_detail(request, pk):
     post = get_object_or_404(BPost, pk=pk)
-    return render(request, 'detail.html', {'post': post})
+    comments = Comment.objects.filter(post=post)
+    if request.method=='POST':
+        author_name = request.POST.get('author_name')
+        email = request.POST.get('email')
+        text = request.POST.get('text')
+        Comment.objects.create(author=author_name, email=email, text=text, post=post)
+    return render(request, 'detail.html', {'post': post, 'comments': comments})
 
 def new_post(request):
     form = NewPostForm()

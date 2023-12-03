@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<p>{{ error }}</p>
+<center>
+    <div class="container card m-5 p-4">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div>
+                <input type="text" name="username" placeholder="username" required>
+                <input type="password" name="password1" placeholder="password" required>
+                <input type="password" name="password2" placeholder="repeate password" required>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-outline-success m-3" value="Sign Up">
+            </div>
+        </form>
+        <div>
+</center>
+{% endblock content %}

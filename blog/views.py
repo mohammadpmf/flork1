@@ -20,6 +20,17 @@ class PostsList(generic.ListView):
 #     context = {'postha': posts}
 #     return render(request, 'posts_list.html', context)
 
+class ShowDetail(generic.DetailView):
+    model = BPost
+    context_object_name = 'post'
+    template_name = 'detail.html'
+
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["comments"] = Comment.objects.filter(post=context['post'])
+        return context
+    
+
 def show_detail(request, pk):
     post = get_object_or_404(BPost, pk=pk)
     comments = Comment.objects.filter(post=post)

@@ -2,6 +2,30 @@
 
 
 {% block content %}
+<div class="container card m-5 p-4">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div>
+            <table>
+                {{ form }}
+            </table>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-outline-success m-3" value="Log In">
+        </div>
+    </form>
+<div>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+{% comment %} 
+{% extends "base.html" %}
+{% block content %}
 <p>{{ error }}</p>
 <center>
     <div class="container card m-5 p-4">
@@ -18,4 +42,4 @@
         </form>
         <div>
 </center>
-{% endblock content %}
+{% endblock content %} {% endcomment %}
